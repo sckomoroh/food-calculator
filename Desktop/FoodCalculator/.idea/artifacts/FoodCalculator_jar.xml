@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="FoodCalculator:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/FoodCalculator_jar</output-path>
+    <root id="archive" name="FoodCalculator.jar">
+      <element id="module-output" name="FoodCalculator" />
+    </root>
+  </artifact>
+</component>
