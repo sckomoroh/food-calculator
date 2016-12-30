@@ -64,13 +64,15 @@ public class NewItemDialog extends DialogFragment {
 
                     @Override
                     public void onClick(View view) {
+                        boolean allValuesCorrect = true;
+
                         try {
                             Double.parseDouble(priceTextView.getText().toString());
                         }
                         catch (NumberFormatException ex)
                         {
                             priceTextView.setError("Invalid number format");
-                            return;
+                            allValuesCorrect = false;
                         }
 
                         try {
@@ -79,10 +81,21 @@ public class NewItemDialog extends DialogFragment {
                         catch (NumberFormatException ex)
                         {
                             priceTextView.setError("Invalid number format");
-                            return;
+                            allValuesCorrect = false;
                         }
 
                         String name = nameTextView.getText().toString();
+                        if (name == null || name.isEmpty())
+                        {
+                            nameTextView.setError("The name cannot be empty");
+                            allValuesCorrect = false;
+                        }
+
+                        if (allValuesCorrect == false)
+                        {
+                            return;
+                        }
+
                         double price = Double.parseDouble(priceTextView.getText().toString());
                         double count = Double.parseDouble(countTextView.getText().toString());
 
